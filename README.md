@@ -3,7 +3,7 @@
 Sebuah web interaktif yang menampilkan koleksi lagu favorit Azriel, dibuat dengan **HTML**, **Tailwind CSS**, dan **JavaScript**.  
 Web ini terinspirasi dari tampilan **Spotify modern** dengan sentuhan **glassmorphism** yang elegan dan efek animasi halus.
 
-🌐 **Live Demo:** [Klik di sini](https://azrilgg.github.io/Azriel-fav-music/)  
+🌐 **Info Web:** [Klik di sini](https://azrilgg.github.io/Azriel-fav-music/)  
 
 ---
 
