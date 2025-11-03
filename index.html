@@ -1,311 +1,216 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Music Collection</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Open Graph Meta Tags -->
-<meta property="og:title" content="🎵 Azriel Fav Music" />
-<meta property="og:description" content="Playlist musik favorit Azriel, dibuat dengan HTML & CSS." />
-<meta property="og:image" content="https://azrilgg.github.io/Azriel-fav-music/img/cover.jpg" />
-<meta property="og:url" content="https://azrilgg.github.io/Azriel-fav-music/" />
-<meta property="og:type" content="website" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riel Fav Music</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta property="og:title" content="🎵 Riel Fav Music" />
+  <meta property="og:description" content="Playlist musik favorit Azriel, dibuat dengan HTML & CSS." />
+  <meta property="og:image" content="https://azrilgg.github.io/Azriel-fav-music/img/cover.jpg" />
+  <meta property="og:url" content="https://azrilgg.github.io/Azriel-fav-music/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-<!-- Untuk Twitter/IG preview -->
-<meta name="twitter:card" content="summary_large_image">
-    <style> 
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        
-        .music-card {
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .music-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-        
-        .play-button {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            transition: all 0.3s ease;
-        }
-        
-        .play-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.4);
-        }
-        
-        .spotify-player {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-        
-        .wave {
-            display: inline-block;
-            animation: wave 1.5s ease-in-out infinite;
-        }
-        
-        .wave:nth-child(2) { animation-delay: 0.1s; }
-        .wave:nth-child(3) { animation-delay: 0.2s; }
-        .wave:nth-child(4) { animation-delay: 0.3s; }
-        
-        @keyframes wave {
-            0%, 100% { transform: scaleY(1); }
-            50% { transform: scaleY(1.5); }
-        }
+    body {
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      overflow-x: hidden;
+    }
 
-        .music-number {
-            background: linear-gradient(45deg, #4facfe, #00f2fe);
-            color: white;
-            font-weight: bold;
-        }
+    .gradient-bg {
+      background: linear-gradient(135deg, #5b4b8a 0%, #8f74d9 100%);
+      color: white;
+    }
 
-        .genre-tag {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(5px);
-        }
-    </style>
+    img.bg-photo {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(20px) brightness(0.6);
+      z-index: -1;
+    }
+
+    .music-card {
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .music-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .play-button {
+      background: linear-gradient(45deg, #ff6b6b, #ff9f43);
+      transition: all 0.3s ease;
+    }
+
+    .play-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 150, 80, 0.6);
+    }
+
+    .music-number {
+      background: linear-gradient(45deg, #4facfe, #00f2fe);
+      font-weight: bold;
+      color: white;
+    }
+
+    .wave {
+      animation: wave 1.2s ease-in-out infinite;
+    }
+
+    .wave:nth-child(2) { animation-delay: 0.1s; }
+    .wave:nth-child(3) { animation-delay: 0.2s; }
+    .wave:nth-child(4) { animation-delay: 0.3s; }
+
+    @keyframes wave {
+      0%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(1.5); }
+    }
+
+    .pulse {
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.1); }
+    }
+  </style>
 </head>
+
 <body class="gradient-bg min-h-screen">
-    <div class="container mx-auto px-4 py-8">
-        <!-- Header -->
-        <div class="text-center mb-12">
-            <h1 class="text-5xl font-bold text-white mb-4">
-                🎵 Riel Fav Music⭐
-            </h1>
-            <p class="text-xl text-white/80">Koleksi lagu favorit Azriel Klik Tombol play untuk memulai pada Lagu dan Spotify</p>
-            <div class="mt-4">
-                <span class="genre-tag px-4 py-2 rounded-full text-white text-sm">
-                    🎧 5 Lagu Tersedia
-                </span>
-            </div>
-        </div>
-        
-        <!-- Foto sebagai background -->
-<img src="https://uploads.onecompiler.io/43v86p8fq/43v8az3fr/1000126008.jpg" 
-     alt="Foto saya" 
-     class="absolute inset-0 w-full h-full object-cover blur-md opacity-50">
-        <!-- Music List -->
-        <div class="max-w-4xl mx-auto space-y-6" id="musicList">
-            <!-- Music cards will be generated here -->
-        </div>
 
-        <!-- Current Playing Section -->
-        <div class="max-w-2xl mx-auto mt-12" id="playerSection" style="display: none;">
-            <div class="music-card rounded-2xl p-6">
-                <h3 class="text-2xl font-semibold text-white mb-4 text-center">
-                    🎧 Klik Tombol Play
-                </h3>
-                
+  <img src="https://uploads.onecompiler.io/43v86p8fq/43v8az3fr/1000126008.jpg" alt="Foto saya" class="bg-photo">
 
-
-                <div class="text-center mb-4">
-                    <p class="text-white/80" id="nowPlayingTitle">-</p>
-                    <p class="text-white/60 text-sm" id="nowPlayingArtist">-</p>
-                </div>
-                <div id="currentPlayer" class="spotify-player">
-                    <!-- Spotify embed will be inserted here -->
-                </div>
-            </div>
-        </div>
+  <div class="container mx-auto px-4 py-12 relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-5xl font-bold mb-4 flex items-center justify-center gap-3">
+        <i class="fas fa-music text-yellow-300"></i> Riel Fav Music <i class="fa-solid fa-star text-yellow-300"></i>
+      </h1>
+      <p class="text-lg text-white/80">Koleksi lagu favorit Azriel — klik tombol <i class="fa-solid fa-play"></i> untuk memulai!</p>
+      <div class="mt-4">
+        <span class="px-4 py-2 rounded-full text-white text-sm bg-white/20 backdrop-blur-md">
+          <i class="fa-solid fa-compact-disc"></i> 5 Lagu Tersedia
+        </span>
+      </div>
     </div>
 
-        <!-- Tambahan: Playlist Spotify -->
-        <div class="max-w-3xl mx-auto mt-12">
-            <div class="music-card rounded-2xl p-6">
-                <h3 class="text-2xl font-semibold text-white mb-4 text-center">
-                    ⭐ Playlist Spotify Riel😁
-                </h3>
-                <div class="spotify-player">
-                    <iframe 
-                        style="border-radius:12px" 
-                        src="https://open.spotify.com/embed/playlist/1SjBikuJGiohRfzOvC83AC?utm_source=generator&theme=0" 
-                        width="100%" 
-                        height="500" 
-                        frameborder="0" 
-                        allowfullscreen="" 
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                        loading="lazy">
-                    </iframe>
-                </div>
-            </div>
+    <!-- Music List -->
+    <div class="max-w-4xl mx-auto space-y-6" id="musicList"></div>
+
+    <!-- Now Playing -->
+    <div class="max-w-2xl mx-auto mt-12 hidden" id="playerSection">
+      <div class="music-card p-6">
+        <h3 class="text-2xl font-semibold text-white mb-4 text-center">
+          <i class="fa-solid fa-headphones"></i> Sedang Diputar
+        </h3>
+        <div class="text-center mb-4">
+          <p class="text-white text-lg font-semibold" id="nowPlayingTitle">-</p>
+          <p class="text-white/70 text-sm" id="nowPlayingArtist">-</p>
         </div>
+        <div id="currentPlayer" class="rounded-xl overflow-hidden shadow-lg"></div>
+      </div>
+    </div>
 
-    <script>
-        const music = [
-            {
-                "judul": "Paris",
-                "penyanyi": "The Chainsmokers",
-                "embed": "https://open.spotify.com/track/72jbDTw1piOOj770jWNeaG?si=Bi-RwWUBSdqL5blpcwyMjQ"
-            },
-            {
-                "judul": "Closer",
-                "penyanyi": "The Chainsmokers, Halsey",
-                "embed": "https://open.spotify.com/track/7BKLCZ1jbUBVqRi2FVlTVw?si=fmP0UXeuTpKwbWi8Cimeow"
-            },
-            {
-                "judul": "Alone",
-                "penyanyi": "Marshmello",
-                "embed": "https://open.spotify.com/track/3MEYFivt6bilQ9q9mFWZ4g?si=BIDwcZi0QhOW9dM2l_C2FQ"
-            },
-            {
-                "judul": "Happier",
-                "penyanyi": "Marshmello, Bastille",
-                "embed": "https://open.spotify.com/track/2dpaYNEQHiRxtZbfNsse99?si=a_jyHViRRIS5wZ4CEBM-VQ"
-            },
-            {
-                "judul": "A Sky Full of Stars",
-                "penyanyi": "Coldplay",
-                "embed": "https://open.spotify.com/track/0FDzzruyVECATHXKHFs9eJ?si=4RIsSDxfRnqTAnV1SlDs2w"
-            }
-        ];
+    <!-- Playlist -->
+    <div class="max-w-3xl mx-auto mt-12">
+      <div class="music-card p-6">
+        <h3 class="text-2xl font-semibold text-white mb-4 text-center">
+          <i class="fa-brands fa-spotify text-green-400"></i> Playlist Spotify Riel
+        </h3>
+        <iframe style="border-radius:12px" 
+                src="https://open.spotify.com/embed/playlist/1SjBikuJGiohRfzOvC83AC?utm_source=generator&theme=0"
+                width="100%" height="500" frameborder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </div>
 
-        let currentlyPlaying = null;
+  <script>
+    const music = [
+      { judul: "Paris", penyanyi: "The Chainsmokers", embed: "https://open.spotify.com/track/72jbDTw1piOOj770jWNeaG" },
+      { judul: "Closer", penyanyi: "The Chainsmokers, Halsey", embed: "https://open.spotify.com/track/7BKLCZ1jbUBVqRi2FVlTVw" },
+      { judul: "Alone", penyanyi: "Marshmello", embed: "https://open.spotify.com/track/3MEYFivt6bilQ9q9mFWZ4g" },
+      { judul: "Happier", penyanyi: "Marshmello, Bastille", embed: "https://open.spotify.com/track/2dpaYNEQHiRxtZbfNsse99" },
+      { judul: "A Sky Full of Stars", penyanyi: "Coldplay", embed: "https://open.spotify.com/track/0FDzzruyVECATHXKHFs9eJ" }
+    ];
 
-        function getSpotifyEmbedUrl(spotifyUrl) {
-            // Convert Spotify URL to embed URL
-            const trackId = spotifyUrl.match(/track\/([a-zA-Z0-9]+)/);
-            if (trackId) {
-                return `https://open.spotify.com/embed/track/${trackId[1]}?utm_source=generator&theme=0`;
-            }
-            return null;
-        }
+    let currentlyPlaying = null;
 
-        function getArtistEmoji(artist) {
-            const artistLower = artist.toLowerCase();
-            if (artistLower.includes('marshmello')) return '🌟';
-            if (artistLower.includes('chainsmokers')) return '🌟';
-            if (artistLower.includes('coldplay')) return '🌟';
-            if (artistLower.includes('why don\'t we')) return '🌟';
-            return '🎤';
-        }
+    function getSpotifyEmbedUrl(url) {
+      const id = url.match(/track\/([a-zA-Z0-9]+)/);
+      return id ? `https://open.spotify.com/embed/track/${id[1]}?utm_source=generator&theme=0` : null;
+    }
 
-        function createMusicCard(song, index) {
-            const embedUrl = getSpotifyEmbedUrl(song.embed);
-            const artistEmoji = getArtistEmoji(song.penyanyi);
-            
-            return `
-                <div class="music-card rounded-2xl p-6 flex items-center justify-between">
-                    <div class="flex items-center space-x-4">
-                        <div class="music-number w-12 h-12 rounded-full flex items-center justify-center text-lg">
-                            ${index + 1}
-                        </div>
-                        <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-2xl">
-                            ${artistEmoji}
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-white">${song.judul}</h3>
-                            <p class="text-white/70">${song.penyanyi}</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center space-x-4">
-                        <div class="hidden md:flex space-x-1" id="visualizer-${index}" style="display: none;">
-                            <div class="wave w-1 h-8 bg-white/50 rounded-full"></div>
-                            <div class="wave w-1 h-6 bg-white/50 rounded-full"></div>
-                            <div class="wave w-1 h-10 bg-white/50 rounded-full"></div>
-                            <div class="wave w-1 h-4 bg-white/50 rounded-full"></div>
-                        </div>
-                        
-                        <button 
-                            onclick="playMusic('${embedUrl}', '${song.judul}', '${song.penyanyi}', ${index})"
-                            class="play-button w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg"
-                            id="playBtn-${index}"
-                        >
-                            ▶️
-                        </button>
-                    </div>
-                </div>
-            `;
-        }
+    function createMusicCard(song, index) {
+      const embedUrl = getSpotifyEmbedUrl(song.embed);
+      return `
+        <div class="music-card p-5 flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <div class="music-number w-12 h-12 rounded-full flex items-center justify-center text-lg">${index + 1}</div>
+            <i class="fa-solid fa-music text-2xl text-blue-300"></i>
+            <div>
+              <h3 class="text-xl font-semibold">${song.judul}</h3>
+              <p class="text-white/70">${song.penyanyi}</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="hidden md:flex gap-1" id="visualizer-${index}" style="display: none;">
+              <div class="wave w-1 h-6 bg-white/50 rounded-full"></div>
+              <div class="wave w-1 h-8 bg-white/50 rounded-full"></div>
+              <div class="wave w-1 h-5 bg-white/50 rounded-full"></div>
+              <div class="wave w-1 h-9 bg-white/50 rounded-full"></div>
+            </div>
+            <button onclick="playMusic('${embedUrl}', '${song.judul}', '${song.penyanyi}', ${index})"
+              class="play-button w-12 h-12 rounded-full flex items-center justify-center text-white text-xl shadow-lg"
+              id="playBtn-${index}">
+              <i class="fa-solid fa-play"></i>
+            </button>
+          </div>
+        </div>`;
+    }
 
-        function playMusic(embedUrl, title, artist, index) {
-            const playerSection = document.getElementById('playerSection');
-            const currentPlayer = document.getElementById('currentPlayer');
-            const playBtn = document.getElementById(`playBtn-${index}`);
-            const nowPlayingTitle = document.getElementById('nowPlayingTitle');
-            const nowPlayingArtist = document.getElementById('nowPlayingArtist');
-            
-            // Reset all buttons
-            document.querySelectorAll('[id^="playBtn-"]').forEach(btn => {
-                btn.innerHTML = '▶️';
-                btn.classList.remove('pulse');
-            });
-            
-            // Hide all visualizers
-            document.querySelectorAll('[id^="visualizer-"]').forEach(viz => {
-                viz.style.display = 'none';
-            });
-            
-            if (currentlyPlaying === index) {
-                // Stop playing
-                playerSection.style.display = 'none';
-                currentlyPlaying = null;
-                return;
-            }
-            
-            // Show visualizer for current song
-            const visualizer = document.getElementById(`visualizer-${index}`);
-            visualizer.style.display = 'flex';
-            
-            // Update button state
-            playBtn.innerHTML = '⏸️';
-            playBtn.classList.add('pulse');
-            
-            // Update now playing info
-            nowPlayingTitle.textContent = title;
-            nowPlayingArtist.textContent = artist;
-            
-            // Create Spotify embed
-            currentPlayer.innerHTML = `
-                <iframe 
-                    src="${embedUrl}" 
-                    width="100%" 
-                    height="352" 
-                    frameborder="0" 
-                    allowtransparency="true" 
-                    allow="encrypted-media">
-                </iframe>
-            `;
-            
-            // Show player section with animation
-            playerSection.style.display = 'block';
-            playerSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
-            currentlyPlaying = index;
-        }
+    function playMusic(embedUrl, title, artist, index) {
+      const playerSection = document.getElementById("playerSection");
+      const currentPlayer = document.getElementById("currentPlayer");
+      document.querySelectorAll('[id^="playBtn-"]').forEach(btn => {
+        btn.innerHTML = '<i class="fa-solid fa-play"></i>';
+        btn.classList.remove('pulse');
+      });
+      document.querySelectorAll('[id^="visualizer-"]').forEach(v => v.style.display = "none");
+      if (currentlyPlaying === index) {
+        playerSection.classList.add("hidden");
+        currentlyPlaying = null;
+        return;
+      }
+      document.getElementById(`visualizer-${index}`).style.display = "flex";
+      const btn = document.getElementById(`playBtn-${index}`);
+      btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+      btn.classList.add("pulse");
+      document.getElementById("nowPlayingTitle").textContent = title;
+      document.getElementById("nowPlayingArtist").textContent = artist;
+      currentPlayer.innerHTML = `<iframe src="${embedUrl}" width="100%" height="352" frameborder="0" allow="encrypted-media"></iframe>`;
+      playerSection.classList.remove("hidden");
+      playerSection.scrollIntoView({ behavior: "smooth", block: "center" });
+      currentlyPlaying = index;
+    }
 
-        // Generate music cards
-        function renderMusicList() {
-            const musicList = document.getElementById('musicList');
-            musicList.innerHTML = music.map((song, index) => createMusicCard(song, index)).join('');
-        }
-
-        // Initialize the page
-        renderMusicList();
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'977324b10239fdbe',t:'MTc1NjU0NDkwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    document.getElementById("musicList").innerHTML = music.map(createMusicCard).join("");
+  </script>
+</body>
 </html>
