@@ -28,7 +28,12 @@ Web ini terinspirasi dari tampilan **Spotify modern** dengan sentuhan **glassmor
 
 ## 🖼️ Tampilan Utama
 
-![Preview Web](https://azrilgg.github.io/Azriel-fav-music/img/cover.jpg)
+<p align="center">
+  <img src="https://azrilgg.github.io/Azriel-fav-music/image/web.jpg" 
+       alt="Preview Riel Fav Music" 
+       width="100%" 
+       style="max-width: 800px; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.25);" />
+</p>
 
 ---
 
