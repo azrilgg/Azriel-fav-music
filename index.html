@@ -6,20 +6,16 @@
   <title>Riel Fav Music ✨</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <meta property="og:title" content="🎵 Riel Fav Music" />
-  <meta property="og:description" content="Playlist musik favorit Azriel, dibuat dengan HTML & CSS." />
-  <meta property="og:image" content="https://azrilgg.github.io/Azriel-fav-music/img/cover.jpg" />
-  <meta property="og:url" content="https://azrilgg.github.io/Azriel-fav-music/" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image">
-  
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
     body {
       font-family: 'Poppins', sans-serif;
       overflow-x: hidden;
       color: white;
+      transition: background 0.8s ease, color 0.8s ease;
     }
+
     img.bg-photo {
       position: fixed;
       inset: 0;
@@ -28,12 +24,46 @@
       object-fit: cover;
       filter: blur(25px) brightness(0.5);
       z-index: -1;
-      transition: filter 1s ease;
+      transition: filter 1s ease, opacity 0.6s ease;
     }
+
     body.playing img.bg-photo {
       filter: blur(30px) brightness(0.35);
     }
 
+    /* === LIGHT MODE === */
+    body.light-mode {
+      color: #1e1e1e;
+    }
+    body.light-mode img.bg-photo {
+      opacity: 0.7;
+      filter: blur(20px) brightness(0.85);
+    }
+
+    /* Light mode yang lebih soft */
+    body.light-mode .music-card {
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(12px);
+      color: #111;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    body.light-mode .search-bar input {
+      background: rgba(0, 0, 0, 0.06);
+      color: #111;
+    }
+
+    body.light-mode .search-bar input::placeholder {
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    body.light-mode .gradient-text {
+      background: linear-gradient(90deg, #ff9800, #ffcc33);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* === KARTU & UI === */
     .music-card {
       backdrop-filter: blur(15px);
       background: rgba(255, 255, 255, 0.12);
@@ -43,9 +73,10 @@
     }
     .music-card:hover {
       transform: translateY(-6px);
-      background: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.22);
       box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
     }
+
     .play-button {
       background: linear-gradient(45deg, #ff6b6b, #ff9f43);
       transition: all 0.3s ease;
@@ -54,28 +85,33 @@
       transform: scale(1.15) rotate(8deg);
       box-shadow: 0 0 18px rgba(255, 150, 80, 0.7);
     }
+
     .music-number {
       background: linear-gradient(45deg, #4facfe, #00f2fe);
       font-weight: bold;
       color: white;
       box-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
     }
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.25);
-      border-radius: 20px;
-    }
 
-    /* Animations */
+    .search-bar input {
+      width: 100%;
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: none;
+      outline: none;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      transition: background 0.3s;
+    }
+    .search-bar input::placeholder { color: rgba(255, 255, 255, 0.7); }
+    .search-bar input:focus { background: rgba(255, 255, 255, 0.3); }
+
+    /* Animasi halus */
     @keyframes fadeSlideUp {
       0% { opacity: 0; transform: translateY(40px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-    .fade-in {
-      animation: fadeSlideUp 0.8s ease forwards;
-    }
+    .fade-in { animation: fadeSlideUp 0.8s ease forwards; }
 
     .pulse { animation: pulse 1.5s infinite; }
     @keyframes pulse {
@@ -83,14 +119,6 @@
       50% { opacity: 0.7; transform: scale(1.1); }
     }
 
-    /* Gradient Text */
-    .gradient-text {
-      background: linear-gradient(90deg, #ffe66d, #ff9f43, #feca57);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Wave animation */
     .wave { animation: wave 1.2s ease-in-out infinite; }
     .wave:nth-child(2) { animation-delay: 0.1s; }
     .wave:nth-child(3) { animation-delay: 0.2s; }
@@ -107,19 +135,26 @@
   <img src="https://uploads.onecompiler.io/43v86p8fq/43v8az3fr/1000126008.jpg" alt="Foto saya" class="bg-photo">
 
   <div class="container mx-auto px-4 py-12 relative z-10">
+
     <!-- Header -->
-    <div class="text-center mb-12 fade-in">
-      <h1 class="text-5xl font-bold mb-4 flex items-center justify-center gap-3">
-        <i class="fas fa-music text-yellow-300"></i> 
-        <span class="gradient-text">Riel Fav Music</span>
-        <i class="fa-solid fa-star text-yellow-300"></i>
-      </h1>
-      <p class="text-lg text-white/80">Koleksi lagu favorit Azriel — klik tombol <i class="fa-solid fa-play"></i> untuk memulai!</p>
-      <div class="mt-4">
-        <span class="px-4 py-2 rounded-full text-white text-sm bg-white/20 backdrop-blur-md">
-          <i class="fa-solid fa-compact-disc"></i> 5 Lagu Tersedia
+    <div class="flex flex-col items-center text-center mb-12 fade-in relative">
+      <button id="themeToggle" 
+              class="absolute top-0 right-0 text-2xl p-3 rounded-full bg-white/10 hover:bg-white/20 transition-all">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+
+      <h1 class="text-4xl md:text-5xl font-bold flex items-center gap-3 justify-center mb-2">
+        <i class="fas fa-music text-yellow-300 animate-pulse"></i> 
+        <span class="gradient-text bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-pink-400">
+          Riel Fav Music
         </span>
-      </div>
+      </h1>
+      <p class="text-lg text-white/80">Koleksi lagu favorit Azriel 🎧</p>
+    </div>
+
+    <!-- Search -->
+    <div class="max-w-3xl mx-auto mb-8 fade-in search-bar">
+      <input type="text" id="searchInput" placeholder="Cari lagu atau penyanyi... 🔍">
     </div>
 
     <!-- Music List -->
@@ -153,9 +188,8 @@
       </div>
     </div>
 
-    <!-- Footer -->
     <footer class="text-center mt-16 text-white/70 text-sm fade-in">
-      <p>Made with 💙 by <span class="text-white font-semibold">Azriel 🌙</span></p>
+      <p>Made with 💙 by <span class="font-semibold">Azriel 🌙</span></p>
     </footer>
   </div>
 
@@ -167,7 +201,10 @@
       { judul: "Happier", penyanyi: "Marshmello, Bastille", embed: "https://open.spotify.com/track/2dpaYNEQHiRxtZbfNsse99" },
       { judul: "A Sky Full of Stars", penyanyi: "Coldplay", embed: "https://open.spotify.com/track/0FDzzruyVECATHXKHFs9eJ" }
     ];
+
     let currentlyPlaying = null;
+    const musicList = document.getElementById("musicList");
+    const searchInput = document.getElementById("searchInput");
 
     function getSpotifyEmbedUrl(url) {
       const id = url.match(/track\/([a-zA-Z0-9]+)/);
@@ -177,7 +214,7 @@
     function createMusicCard(song, index) {
       const embedUrl = getSpotifyEmbedUrl(song.embed);
       return `
-        <div class="music-card p-5 flex items-center justify-between fade-in" style="animation-delay:${index * 0.15}s">
+        <div class="music-card p-5 flex items-center justify-between fade-in" style="animation-delay:${index * 0.1}s">
           <div class="flex items-center space-x-4">
             <div class="music-number w-12 h-12 rounded-full flex items-center justify-center text-lg">${index + 1}</div>
             <i class="fa-solid fa-music text-2xl text-blue-300"></i>
@@ -200,6 +237,14 @@
             </button>
           </div>
         </div>`;
+    }
+
+    function renderList(filter = "") {
+      const filtered = music.filter(song =>
+        song.judul.toLowerCase().includes(filter.toLowerCase()) ||
+        song.penyanyi.toLowerCase().includes(filter.toLowerCase())
+      );
+      musicList.innerHTML = filtered.map(createMusicCard).join("");
     }
 
     function playMusic(embedUrl, title, artist, index) {
@@ -228,7 +273,24 @@
       playerSection.scrollIntoView({ behavior: "smooth", block: "center" });
       currentlyPlaying = index;
     }
-    document.getElementById("musicList").innerHTML = music.map(createMusicCard).join("");
+
+    // Theme toggle
+    const themeToggle = document.getElementById("themeToggle");
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      document.body.classList.add("light-mode");
+      themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    }
+
+    themeToggle.onclick = () => {
+      document.body.classList.toggle("light-mode");
+      const isLight = document.body.classList.contains("light-mode");
+      themeToggle.innerHTML = isLight ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+      localStorage.setItem("theme", isLight ? "light" : "dark");
+    };
+
+    searchInput.addEventListener("input", e => renderList(e.target.value));
+    renderList();
   </script>
 </body>
-  </html>
+</html>
