@@ -6,24 +6,29 @@ Web ini terinspirasi dari tampilan **Spotify modern** dengan sentuhan **glassmor
 🌐 **Info Web:** [Klik di sini](https://azrilgg.github.io/Azriel-fav-music/)  
 
 ---
-
 ## ✨ Fitur Utama
 
 - 🎧 **Daftar 5 Lagu Favorit**  
   Menampilkan lagu dari artis seperti *The Chainsmokers*, *Marshmello*, dan *Coldplay*.
 
 - 🎚️ **Tombol Play Interaktif**  
-  Klik tombol ▶️ untuk memutar lagu langsung lewat Spotify Embed Player.
+  Klik tombol ▶️ untuk memutar lagu langsung lewat **Spotify Embed Player** tanpa harus pindah tab.
 
 - 🎶 **Animasi Visualizer & Pulse Effect**  
-  Menampilkan efek gelombang musik dan animasi pada tombol lagu yang sedang diputar.
+  Efek gelombang musik bergerak dan tombol yang berdenyut saat lagu diputar — bikin tampilannya lebih hidup.
 
 - 🪩 **Desain Modern & Responsif**  
-  Menggunakan gaya *glassmorphism*, gradasi ungu, dan bayangan lembut agar tampilan tetap keren di semua perangkat.
+  Menggunakan gaya *glassmorphism*, gradasi ungu-oranye, dan bayangan lembut agar tetap keren di semua perangkat.
 
 - 💽 **Integrasi Playlist Spotify**  
-  Di bagian bawah terdapat playlist pribadi dari akun Spotify Azriel, langsung bisa diputar dari web.
+  Di bagian bawah halaman terdapat playlist pribadi Azriel yang bisa langsung kamu dengarkan dari Spotify.
 
+- 🌗 **Mode Tema (Light & Dark)**  
+  Bisa beralih antara **tema gelap** dan **tema terang** dengan satu klik tombol 🌙/☀️.  
+  Tema juga otomatis tersimpan di *localStorage* agar preferensi pengguna tetap diingat.
+
+- 🔍 **Fitur Pencarian Lagu**  
+  Gunakan kolom pencarian untuk menemukan lagu atau penyanyi favorit dengan cepat dan praktis.
 ---
 
 ## 🖼️ Tampilan Utama
