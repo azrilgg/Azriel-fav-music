@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Riel Fav Music</title>
+  <title>Riel Fav Music ✨</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <meta property="og:title" content="🎵 Riel Fav Music" />
@@ -15,78 +15,89 @@
   
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
     body {
       font-family: 'Poppins', sans-serif;
-      position: relative;
       overflow-x: hidden;
-    }
-
-    .gradient-bg {
-      background: linear-gradient(135deg, #5b4b8a 0%, #8f74d9 100%);
       color: white;
     }
-
     img.bg-photo {
       position: fixed;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: blur(20px) brightness(0.6);
+      filter: blur(25px) brightness(0.5);
       z-index: -1;
+      transition: filter 1s ease;
+    }
+    body.playing img.bg-photo {
+      filter: blur(30px) brightness(0.35);
     }
 
     .music-card {
       backdrop-filter: blur(15px);
       background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 20px;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
     }
-
     .music-card:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      transform: translateY(-6px);
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25);
     }
-
     .play-button {
       background: linear-gradient(45deg, #ff6b6b, #ff9f43);
       transition: all 0.3s ease;
     }
-
     .play-button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 15px rgba(255, 150, 80, 0.6);
+      transform: scale(1.15) rotate(8deg);
+      box-shadow: 0 0 18px rgba(255, 150, 80, 0.7);
     }
-
     .music-number {
       background: linear-gradient(45deg, #4facfe, #00f2fe);
       font-weight: bold;
       color: white;
+      box-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 20px;
     }
 
-    .wave {
-      animation: wave 1.2s ease-in-out infinite;
+    /* Animations */
+    @keyframes fadeSlideUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      animation: fadeSlideUp 0.8s ease forwards;
     }
 
-    .wave:nth-child(2) { animation-delay: 0.1s; }
-    .wave:nth-child(3) { animation-delay: 0.2s; }
-    .wave:nth-child(4) { animation-delay: 0.3s; }
-
-    @keyframes wave {
-      0%, 100% { transform: scaleY(1); }
-      50% { transform: scaleY(1.5); }
-    }
-
-    .pulse {
-      animation: pulse 1.5s infinite;
-    }
-
+    .pulse { animation: pulse 1.5s infinite; }
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.7; transform: scale(1.1); }
+    }
+
+    /* Gradient Text */
+    .gradient-text {
+      background: linear-gradient(90deg, #ffe66d, #ff9f43, #feca57);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Wave animation */
+    .wave { animation: wave 1.2s ease-in-out infinite; }
+    .wave:nth-child(2) { animation-delay: 0.1s; }
+    .wave:nth-child(3) { animation-delay: 0.2s; }
+    .wave:nth-child(4) { animation-delay: 0.3s; }
+    @keyframes wave {
+      0%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(1.6); }
     }
   </style>
 </head>
@@ -97,9 +108,11 @@
 
   <div class="container mx-auto px-4 py-12 relative z-10">
     <!-- Header -->
-    <div class="text-center mb-12">
+    <div class="text-center mb-12 fade-in">
       <h1 class="text-5xl font-bold mb-4 flex items-center justify-center gap-3">
-        <i class="fas fa-music text-yellow-300"></i> Riel Fav Music <i class="fa-solid fa-star text-yellow-300"></i>
+        <i class="fas fa-music text-yellow-300"></i> 
+        <span class="gradient-text">Riel Fav Music</span>
+        <i class="fa-solid fa-star text-yellow-300"></i>
       </h1>
       <p class="text-lg text-white/80">Koleksi lagu favorit Azriel — klik tombol <i class="fa-solid fa-play"></i> untuk memulai!</p>
       <div class="mt-4">
@@ -110,10 +123,10 @@
     </div>
 
     <!-- Music List -->
-    <div class="max-w-4xl mx-auto space-y-6" id="musicList"></div>
+    <div class="max-w-4xl mx-auto space-y-6 fade-in" id="musicList"></div>
 
     <!-- Now Playing -->
-    <div class="max-w-2xl mx-auto mt-12 hidden" id="playerSection">
+    <div class="max-w-2xl mx-auto mt-12 hidden fade-in" id="playerSection">
       <div class="music-card p-6">
         <h3 class="text-2xl font-semibold text-white mb-4 text-center">
           <i class="fa-solid fa-headphones"></i> Sedang Diputar
@@ -127,7 +140,7 @@
     </div>
 
     <!-- Playlist -->
-    <div class="max-w-3xl mx-auto mt-12">
+    <div class="max-w-3xl mx-auto mt-12 fade-in">
       <div class="music-card p-6">
         <h3 class="text-2xl font-semibold text-white mb-4 text-center">
           <i class="fa-brands fa-spotify text-green-400"></i> Playlist Spotify Riel
@@ -139,6 +152,11 @@
         </iframe>
       </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-16 text-white/70 text-sm fade-in">
+      <p>Made with 💙 by <span class="text-white font-semibold">Azriel 🌙</span></p>
+    </footer>
   </div>
 
   <script>
@@ -149,7 +167,6 @@
       { judul: "Happier", penyanyi: "Marshmello, Bastille", embed: "https://open.spotify.com/track/2dpaYNEQHiRxtZbfNsse99" },
       { judul: "A Sky Full of Stars", penyanyi: "Coldplay", embed: "https://open.spotify.com/track/0FDzzruyVECATHXKHFs9eJ" }
     ];
-
     let currentlyPlaying = null;
 
     function getSpotifyEmbedUrl(url) {
@@ -160,7 +177,7 @@
     function createMusicCard(song, index) {
       const embedUrl = getSpotifyEmbedUrl(song.embed);
       return `
-        <div class="music-card p-5 flex items-center justify-between">
+        <div class="music-card p-5 flex items-center justify-between fade-in" style="animation-delay:${index * 0.15}s">
           <div class="flex items-center space-x-4">
             <div class="music-number w-12 h-12 rounded-full flex items-center justify-center text-lg">${index + 1}</div>
             <i class="fa-solid fa-music text-2xl text-blue-300"></i>
@@ -188,6 +205,7 @@
     function playMusic(embedUrl, title, artist, index) {
       const playerSection = document.getElementById("playerSection");
       const currentPlayer = document.getElementById("currentPlayer");
+      document.body.classList.add("playing");
       document.querySelectorAll('[id^="playBtn-"]').forEach(btn => {
         btn.innerHTML = '<i class="fa-solid fa-play"></i>';
         btn.classList.remove('pulse');
@@ -195,6 +213,7 @@
       document.querySelectorAll('[id^="visualizer-"]').forEach(v => v.style.display = "none");
       if (currentlyPlaying === index) {
         playerSection.classList.add("hidden");
+        document.body.classList.remove("playing");
         currentlyPlaying = null;
         return;
       }
@@ -209,8 +228,7 @@
       playerSection.scrollIntoView({ behavior: "smooth", block: "center" });
       currentlyPlaying = index;
     }
-
     document.getElementById("musicList").innerHTML = music.map(createMusicCard).join("");
   </script>
 </body>
-</html>
+  </html>
