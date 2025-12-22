@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Riel Fav Music - Koleksi playlist musik favorit Azriel. Discover handpicked tracks from The Chainsmokers, Marshmello, Coldplay dan banyak lagi.">
+  <meta name="keywords" content="musik, playlist, spotify, Azriel, lagu favorit, music collection">
+  <meta name="author" content="Azriel">
+  <meta name="theme-color" content="#0a0a0f">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Riel Fav Music ✨">
+  <meta property="og:description" content="Koleksi playlist musik favorit Azriel">
+  <meta property="og:type" content="website">
+
+  <title>Riel Fav Music ✨ | Premium Spotify Playlist</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- ═══════════════════════════════════════════════════════════════
+       BACKGROUND IMAGE (YOUR PHOTO - PRESERVED)
+       ═══════════════════════════════════════════════════════════════ -->
+  <img src="image/bg card.jpg" alt="Riel Background" class="bg-photo">
+  <div class="bg-overlay"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       PRELOADER
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-content">
+      <div class="preloader-icon">
+        <i class="fa-solid fa-music"></i>
+      </div>
+      <div class="preloader-bars">
+        <div class="preloader-bar"></div>
+        <div class="preloader-bar"></div>
+        <div class="preloader-bar"></div>
+        <div class="preloader-bar"></div>
+        <div class="preloader-bar"></div>
+      </div>
+      <p class="preloader-text">Loading Vibes...</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon"></div>
+        <span>Riel Fav Music</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#tracks" class="nav-link">Tracks</a></li>
+        <li><a href="#mood" class="nav-link">Mood</a></li>
+        <li><a href="#playlist" class="nav-link">Playlist</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#hero" class="nav-link">Home</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#tracks" class="nav-link">Tracks</a>
+    <a href="#mood" class="nav-link">Mood</a>
+    <a href="#playlist" class="nav-link">Playlist</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       HERO SECTION
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-particles"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fa-brands fa-spotify"></i>
+        <span>Premium Playlist Collection</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="hero-title-line">Riel Fav</span>
+        <span class="hero-title-line accent">Music ✨</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Koleksi musik favorit yang dikurasi dengan penuh cinta. Dari beat EDM yang energik
+        hingga melodi romantis yang menyentuh hati. Temukan vibe-mu di sini! 🎧
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#playlist" class="btn btn-spotify">
+          <i class="fa-brands fa-spotify"></i>
+          <span>Open Playlist</span>
+        </a>
+        <a href="#tracks" class="btn btn-secondary">
+          <i class="fa-solid fa-play"></i>
+          <span>Explore Tracks</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       ABOUT SECTION
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="section about" id="about">
+    <div class="section-container">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <div class="vinyl-container">
+            <div class="vinyl">
+              <div class="vinyl-label">
+                <i class="fa-solid fa-music"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <div class="section-badge reveal">
+            <i class="fa-solid fa-heart"></i>
+            <span>My Music Journey</span>
+          </div>
+
+          <h3 class="reveal reveal-delay-1">Musik adalah Bahasa Universal yang Menyatukan Jiwa 🎵</h3>
+
+          <p class="reveal reveal-delay-2">
+            Hai! Aku Azriel, dan ini adalah koleksi pribadi lagu-lagu yang menemani hari-hariku.
+            Dari pagi yang semangat dengan The Chainsmokers, sore santai bareng Coldplay,
+            hingga malam yang reflektif dengan Marshmello.
+          </p>
+
+          <p class="reveal reveal-delay-3">
+            Setiap lagu punya cerita dan momen spesial. Semoga playlist ini bisa jadi
+            teman setia perjalananmu juga! 💜
+          </p>
+
+          <div class="about-stats reveal reveal-delay-4">
+            <div class="stat-item">
+              <span class="stat-number">25+</span>
+              <span class="stat-label">Tracks</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">25</span>
+              <span class="stat-label">Artists</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">∞</span>
+              <span class="stat-label">Vibes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FEATURED TRACKS SECTION
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="section featured-tracks" id="tracks">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-badge reveal">
+          <i class="fa-solid fa-fire"></i>
+          <span>Featured</span>
+        </div>
+        <h2 class="section-title reveal reveal-delay-1">Top Favorite Tracks</h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          Lagu-lagu pilihan yang selalu on repeat. Klik untuk dengarkan! 🎶
+        </p>
+      </div>
+
+      <!-- Search -->
+      <div class="search-section">
+        <div class="search-container reveal">
+          <div class="search-wrapper">
+            <input type="text" id="searchInput" class="search-input" placeholder="Cari lagu atau artis... 🔍">
+            <i class="fa-solid fa-search search-icon"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tracks Grid -->
+      <div class="tracks-grid" id="tracksGrid">
+        <!-- Tracks will be rendered by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       MOOD SELECTOR SECTION
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="section mood-section" id="mood">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-badge reveal">
+          <i class="fa-solid fa-palette"></i>
+          <span>Mood</span>
+        </div>
+        <h2 class="section-title reveal reveal-delay-1">What's Your Vibe?</h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          Pilih mood-mu dan temukan lagu yang cocok! ✨
+        </p>
+      </div>
+
+      <div class="mood-grid">
+        <div class="mood-card reveal" data-mood="energetic">
+          <span class="mood-icon">⚡</span>
+          <span class="mood-label">Energetic</span>
+        </div>
+        <div class="mood-card reveal reveal-delay-1" data-mood="chill">
+          <span class="mood-icon">🌊</span>
+          <span class="mood-label">Chill</span>
+        </div>
+        <div class="mood-card reveal reveal-delay-2" data-mood="romantic">
+          <span class="mood-icon">💕</span>
+          <span class="mood-label">Romantic</span>
+        </div>
+        <div class="mood-card reveal reveal-delay-3" data-mood="focus">
+          <span class="mood-icon">🎯</span>
+          <span class="mood-label">Focus</span>
+        </div>
+        <div class="mood-card reveal reveal-delay-4" data-mood="happy">
+          <span class="mood-icon">🌟</span>
+          <span class="mood-label">Happy</span>
+        </div>
+        <div class="mood-card reveal reveal-delay-5" data-mood="sad">
+          <span class="mood-icon">🌧️</span>
+          <span class="mood-label">Melancholy</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       NOW PLAYING SECTION
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="now-playing hidden" id="nowPlayingSection">
+    <div class="now-playing-container">
+      <div class="now-playing-card">
+        <div class="now-playing-header">
+          <i class="fa-solid fa-headphones"></i>
+          <h3>Now Playing</h3>
+        </div>
+        <div class="now-playing-info">
+          <p class="now-playing-title" id="nowPlayingTitle">Select a track</p>
+          <p class="now-playing-artist" id="nowPlayingArtist">—</p>
+        </div>
+        <div class="now-playing-embed" id="nowPlayingEmbed">
+          <!-- Spotify embed will be inserted here -->
+        </div>
+        <div class="visualizer">
+          <div class="visualizer-bar"></div>
+          <div class="visualizer-bar"></div>
+          <div class="visualizer-bar"></div>
+          <div class="visualizer-bar"></div>
+          <div class="visualizer-bar"></div>
+          <div class="visualizer-bar"></div>
+          <div class="visualizer-bar"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SPOTIFY PLAYLIST SECTION (PRESERVED EMBED)
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="section playlist-section" id="playlist">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-badge reveal">
+          <i class="fa-brands fa-spotify"></i>
+          <span>Spotify</span>
+        </div>
+        <h2 class="section-title reveal reveal-delay-1">Full Playlist</h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          Dengarkan playlist lengkap langsung dari Spotify! 🎧
+        </p>
+      </div>
+
+      <div class="playlist-container reveal">
+        <div class="playlist-card">
+          <div class="playlist-header">
+            <div class="playlist-spotify-icon">
+              <i class="fa-brands fa-spotify"></i>
+            </div>
+            <div class="playlist-info">
+              <h3>Riel's Favorite Playlist</h3>
+              <p>Curated with love • 50+ tracks</p>
+            </div>
+          </div>
+
+          <div class="playlist-embed">
+            <!-- PRESERVED SPOTIFY EMBED -->
+            <iframe style="border-radius:12px"
+              src="https://open.spotify.com/embed/playlist/1SjBikuJGiohRfzOvC83AC?utm_source=generator&theme=0"
+              width="100%" height="500" frameborder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       STATS SECTION
+       ═══════════════════════════════════════════════════════════════ -->
+  <section class="section stats-section" id="stats">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-badge reveal">
+          <i class="fa-solid fa-chart-line"></i>
+          <span>Stats</span>
+        </div>
+        <h2 class="section-title reveal reveal-delay-1">Music Journey</h2>
+        <p class="section-subtitle reveal reveal-delay-2">
+          Angka-angka di balik perjalanan musikku 📊
+        </p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stats-card reveal">
+          <div class="stats-icon">
+            <i class="fa-solid fa-music"></i>
+          </div>
+          <div class="stats-number" data-target="500" data-suffix="+">0</div>
+          <div class="stats-label">Hours Listened</div>
+        </div>
+
+        <div class="stats-card reveal reveal-delay-1">
+          <div class="stats-icon">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          <div class="stats-number" data-target="50" data-suffix="+">0</div>
+          <div class="stats-label">Favorite Tracks</div>
+        </div>
+
+        <div class="stats-card reveal reveal-delay-2">
+          <div class="stats-icon">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <div class="stats-number" data-target="15" data-suffix="">0</div>
+          <div class="stats-label">Artists Loved</div>
+        </div>
+
+        <div class="stats-card reveal reveal-delay-3">
+          <div class="stats-icon">
+            <i class="fa-solid fa-headphones"></i>
+          </div>
+          <div class="stats-number" data-target="365" data-suffix="">0</div>
+          <div class="stats-label">Days Streaming</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="floating-notes"></div>
+
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <i class="fa-solid fa-headphones"></i>
+          <span>Riel Fav Music</span>
+        </div>
+        <p class="footer-description">
+          Koleksi musik favorit yang dikurasi dengan penuh cinta oleh Azriel.
+          Temukan vibe-mu dan nikmati musiknya! 🎵
+        </p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Spotify">
+            <i class="fa-brands fa-spotify"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+          <a href="#" class="social-link" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#hero"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+          <li><a href="#about"><i class="fa-solid fa-chevron-right"></i> About</a></li>
+          <li><a href="#tracks"><i class="fa-solid fa-chevron-right"></i> Tracks</a></li>
+          <li><a href="#playlist"><i class="fa-solid fa-chevron-right"></i> Playlist</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Discover</h4>
+        <ul class="footer-links">
+          <li><a href="#mood"><i class="fa-solid fa-chevron-right"></i> Mood Selector</a></li>
+          <li><a href="#stats"><i class="fa-solid fa-chevron-right"></i> Music Stats</a></li>
+          <li><a href="#tracks"><i class="fa-solid fa-chevron-right"></i> Search Tracks</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Connect</h4>
+        <ul class="footer-links">
+          <li><a href="https://open.spotify.com/playlist/1SjBikuJGiohRfzOvC83AC" target="_blank"><i
+                class="fa-brands fa-spotify"></i> Spotify Playlist</a></li>
+          <li><a href="#"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        Made with 💜 by <span>Azriel</span> • © 2024 All rights reserved
+      </p>
+    </div>
+  </footer>
+
+  <!-- Main Script -->
+  <script src="script.js"></script>
+</body>
+
+</html>
